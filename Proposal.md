@@ -3,7 +3,7 @@
 ## ParallelGraphs, A package for distributed and parallelized graph processing.
 
 - Student: Pranav Thulasiram Bhat (pranavtbhat@gmail.com, [@pranavtbhat](https://github.com/pranavtbhat))
-- Mentor : Shashi Gowda (shashigowda91@gmail.com, [@shashi](https://github.com/shashi))
+- Mentors : Viral B. Shah (viral@juliacomputing.com , [@ViralBShah](https://github.com/ViralBShah)) and Shashi Gowda (shashigowda91@gmail.com, [@shashi](https://github.com/shashi))
 
 ## Summary
 I hope to develop a package, ParallelGraphs, that will help analyse and manipulate massive graphs in a distributed environment. The package will adhere to two separate computing models; The first being the vertex centric Pregel model that relies on Bulk Synchronous Parallel infrastructure. The second model is a combinatorial approach that will involve matrix operations such as multiplication and vector indexing on distributed sparse matrices. ParallelGraphs will also provide flexibility in terms of the mode of computation offered. Compatibility with *LightGraphs* will ensure that smaller graphs can be dealt with using efficient sequential algorithms. The package will also experiment with CPU/GPU parallel algorithms with an aim of unifying all graph computation models into a single package.
