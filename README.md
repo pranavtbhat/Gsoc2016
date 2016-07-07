@@ -2,6 +2,8 @@
 My project for Google Summer of Code 2016.
 
 ## General Performance Tips
+- In general a low allocation count implies better performance. A very high allocation count usually indicates some form of type incompatibility or poor type handling. 
+- The `@time` macro isn't very good at measuring performance, especially for small operations. Try `BenchmarkTools` instead.
 - Use array comprehensions instead of map. Much faster, with far fewer allocations.
 - `Sizehint!` to reduce allocation count.
 
