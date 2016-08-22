@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GSoC 2016 Project: Graft.jl
+title: "GSoC 2016 Project: Graft.jl"
 author: <a href="https://github.com/pranavtbhat">Pranav Thulasiram Bhat</a>
 ---
 
@@ -26,7 +26,7 @@ So the modified proposal could be summarized as, the development of a package th
 # Graft
 `ParallelGraphs` turned out to be a misnomer, since I was moving towards a more general purpose data analysis framework. So I chose the name `Graft`, a kind of abbreviation for Graph Toolkit. The following sections detail `Graft's` features:
 
-# Vertex and Edge Metadata
+## Vertex and Edge Metadata
 Graphs are often representations of real world entities, and the information attached to them. Such entities (and their relationships), often have data attached to them.
 While it's quite straightforward to store vertex data (a simple table will suffice), storing edges and their data is very tricky. The data should be structured on the
 source and target vertices, should support random access and should be vectorized for queries.
@@ -35,18 +35,18 @@ At first I tried placing the edge data in a SparseMatrixCSC. This turned out to 
 A simpler solution is to store edge metadata in a DataFrame, and have a SparseMatrixCSC map edges onto indices for the DataFrame. This strategy needed a lot less
 code, and the benchmarks were more promising. Mutations such as the addition or removal of vertices and edges become more complicated however.
 
-# Vertex Labelling
+## Vertex Labelling
 Most graph libraries don't support vertex labelling. It can be very confusing to refer to a vertex by its (often long) integer identifier. It's also
 computationally expensive to use non-integer labels in the implementation of the package (any such implementation would involve dictionaries). There is no reason, however,
 for the user to have to use integer labels externally. Graft supports two modes of vertex labelling. By default, a vertex is identified by its internal identifier. A user
 can assign labels of any arbitrary Julia type to identify vertices, overriding the internal identifiers. This strategy, I feel, makes a reasonable compromise between
 user experience and performance.
 
-# SQL Like Queries
+## SQL Like Queries
 Graft's query notation is borrowed from [Jplyer](https://github.com/davidagold/jplyr.jl). The `@query` macro is used to simplify the query syntax, and
 accepts a pipeline of abstractions separated by the pipe operator `|>`. The stages are described through abstractions:
 
-## `eachvertex`
+### `eachvertex`
 Accepts a vertex expression, that is run over every vertex. Vertex properties can be expressed using the dot notation. Some reserved properties are `v.id`, `v.label`,
 `v.adj`, `v.indegree` and `v.outdegree`.
 Examples:
@@ -56,7 +56,7 @@ Examples:
 @query(g |> eachvertex(v.outdegree - v.indegree)) # Kirchoff's law :P
 ```
 
-## `eachedge`
+### `eachedge`
 Accepts an edge expression, that is run over every edge. The symbol `s` is used to denote
 the source vertex, and `t` is used to denote the target vertex in the edge. The symbol `e` is used to denote
 the edge itself. Edge properties can be expressed through the dot notation. Some reserved properties are `e.source`, `e.target`, `e.mutualcount`, and `e.mutual`.
@@ -67,7 +67,7 @@ Examples:
 @query g |> eachedge(e.mutualcount)              # Counts the number of "mutual friends" between the participating vertices in each edge
 ```
 
-## `filter`
+### `filter`
 Accepts vertex or edge expressions and computes subgraphs with a subset of vertices, or a subset
 of edges, or both.
 Examples:
@@ -76,7 +76,7 @@ Examples:
 @query g |> filter(e.source != e.target) # Remove self loops from the graph
 ```
 
-## `select`
+### `select`
 Returns a subgraph with a subset of vertex properties, or a subset of edge properties or both.
 Examples:
 ```julia
@@ -92,10 +92,11 @@ The typical workflow I hope to support with `Graft` is:
 - Bring the data back into `Graft` as a new property, or use it to modify the graphs structure.
 
 The following examples should demonstrate this workflow:
-1. [Baseball Players](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/baseball.ipynb) demo: I spliced together two separate datasets, a table on baseball players
+
+* [Baseball Players](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/baseball.ipynb) demo: I spliced together two separate datasets, a table on baseball players
 and a trust network. The resulting data is quite absurd, but does a good job of showing
 the quantitative queries Graft can run.
-2. [Google+](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/google%2B.ipynb) demo: This demo uses a real, somewhat large, dataset with plenty of text data.
+* [Google+](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/google%2B.ipynb) demo: This demo uses a real, somewhat large, dataset with plenty of text data.
 
 # Future Work
 - Graph IO : Support more graph file formats.
