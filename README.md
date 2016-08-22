@@ -32,7 +32,8 @@ to store metadata.
 - Graph queries: Graft provides a pipelined query macro system, that allows users to construct complex sql-like queries on graph metadata, and structure.
 
 ## Demo
-You can find a demo [here](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/Demo.md)
+* [Google+](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/google+.ipynb)
+* [Baseball Players](https://github.com/pranavtbhat/Graft.jl/blob/master/examples/baseball.ipynb)
 
 ## Contributions
 My commits during the GSOC period:
