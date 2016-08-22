@@ -11,7 +11,7 @@ My project for Google Summer of Code 2016.
 You can find my proposal for Gsoc2016 [here](https://summerofcode.withgoogle.com/serve/6003629811040256/)
 
 The proposal describes plans to develop a parallelized graph processing library, aimed at large graph analysis.
-However, in the first month or so, we decided to decided to work towards a package that supports graph metadata,
+However, in the first month or so, we decided to work towards a package that supports graph metadata,
 vertex labelling, and SQL like queries for graphs.
 Our change in direction was mainly motivated by:
 
@@ -38,4 +38,4 @@ You can find a demo [here](https://github.com/pranavtbhat/Graft.jl/blob/master/e
 My commits during the GSOC period:
 - [Graft.jl](https://github.com/pranavtbhat/Graft.jl/commits/master?author=pranavtbhat)
 - [LightGraphs.jl](https://github.com/JuliaGraphs/LightGraphs.jl/commits/master?author=pranavtbhat)
-- [Julia](https://github.com/JuliaLang/julia/commits/master?author=pranavtbhat   )
+- [Julia](https://github.com/JuliaLang/julia/commits/master?author=pranavtbhat)
