@@ -20,7 +20,7 @@ My commits during the GSOC period:
 - [Julia](https://github.com/JuliaLang/julia/commits/master?author=pranavtbhat)
 
 ## Quick Links
-* [Announcement]() on the julia-users mailing list 
+* [Announcement](https://groups.google.com/forum/#!topic/julia-users/8wh-EzSEKxc) on the julia-users mailing list 
 * [Package Build Status](http://pkg.julialang.org/?pkg=Graft#Graft)
 * [License](https://raw.githubusercontent.com/pranavtbhat/Graft.jl/master/LICENSE.md)
 * [Documentation](https://pranavtbhat.github.io/Graft.jl/stable)
